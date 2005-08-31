@@ -1,0 +1,18 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=1341
+
+this (very) lightweight script automatically updates the time-stamp on a file when you :write it out.
+the time-stamp is of the form:
+     Last Change:  Wed Aug 31 10:00 AM 2005 EDT
+
+The script is similar to the example given in :help autocmd, the difference being that the time-stamp already there is checked. If it is identical to the one being added, then nothing is done. Since the time-stamp is truncated to the last hour, this ensures that the undo buffer is changed only for :write's every hour.
+
+Set g:timeStampLeader in your ~/.vimrc to change 'Last Change: '
+(to 'Last modified: ' for instance)
+
+Use :NOMOD to force the time-stamp to be not updated.
+Use :MOD to change it back.
+
+PS: The update only works if the string 'Last Change: ' is found somewhere
+in the first 20 lines of the file. Only the first found occurence is processed. 
+
+This is a modified version of lastchange.vim script by Srinath Avadhanula.  This version fixes a bug where if the system was not win32, the time-zone would get truncated from PST to P, or EDT to E, etc.
